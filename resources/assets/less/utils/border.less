@@ -1,0 +1,402 @@
+@import "../variables";
+
+/**
+ * @atdoc utility
+ * @name circle
+ * @category border
+ *
+ * @description
+ * Make an element look like a circle.
+ */
+.u-circle {
+  border-radius: 50% !important;
+}
+
+/**
+ * @atdoc utility
+ * @name u-border0px
+ * @category border
+ *
+ * @description
+ * Removes border from the element
+ */
+.u-border0px {
+  border-width: 0 !important;
+}
+
+/**
+ * @atdoc utility
+ * @name u-border1px
+ * @category border
+ *
+ * @description
+ * Add 1px border to the element
+ */
+.u-border1px {
+  border-width: 1px !important;
+}
+
+/**
+ * @atdoc utility
+ * @name noBorderOnLastChild
+ * @category border
+ *
+ * @description
+ * remove border of last child
+ */
+.u-noBorderOnLastChild:last-child {
+  border: 0 !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderMercury1px
+ * @category border
+ *
+ * @description
+ * Add 1px border in mercury color to the element.
+ */
+.u-borderMercury1px {
+  border: 1px solid @color-mercury !important;
+}
+/**
+ * @atdoc utility
+ * @name borderAlto1px
+ * @category border
+ *
+ * @description
+ * Add 1px border in alto color to the element.
+ */
+.u-borderAlto1px {
+  border: 1px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderBottomAlto1px
+ * @category border
+ *
+ * @description
+ * Add 1px bottom border in alto color to the element.
+ */
+.u-borderBottomAlto1px {
+  border-bottom: 1px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderHAlto1px
+ * @category border
+ *
+ * @description
+ * Add 1px right and left border in alto color to the element.
+ */
+.u-borderHAlto1px {
+  border-left: 1px solid @color-alto !important;
+  border-right: 1px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderHAlto1px
+ * @category border
+ *
+ * @description
+ * Add 1px right and left border in alto color to the element.
+ */
+.u-borderVAlto1px {
+  border-top: 1px solid @color-alto !important;
+  border-bottom: 1px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderTopAlto1px
+ * @category border
+ *
+ * @description
+ * Add 1px top border in alto color to the element.
+ */
+.u-borderTopAlto1px {
+  border-top: 1px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderLAlto1px
+ * @category border
+ */
+.u-borderLAlto1px {
+  border-left: 1px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderBottomAlabaster1px
+ * @category border
+ *
+ * @description
+ * Add 1px bottom border in alabaster color to the element.
+ */
+.u-borderBottomAlabaster1px {
+  border-bottom: 1px solid @color-alabaster !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderRightAlabaster1px
+ * @category border
+ *
+ * @description
+ * Add 1px right border in alabaster color to the element.
+ */
+.u-borderRightAlabaster1px {
+  border-right: 1px solid @color-alabaster !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderRightAlto1px
+ * @category border
+ *
+ * @description
+ * Add 1px right border in alto color to the element.
+ */
+.u-borderRightAlto1px {
+  border-right: 1px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderDodgerBlue2px
+ * @category border
+ *
+ * @description
+ * Add 2px border in dodger blue color to the element.
+ */
+.u-borderDodgerBlue2px {
+  border: 2px solid @color-dodger-blue !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderRazzleDazzleRose2px
+ * @category border
+ *
+ * @description
+ * Add 2px border in razzle dazzle rose color to the element.
+ */
+.u-borderRazzleDazzleRose2px {
+  border: 2px solid @color-razzle-dazzle-rose !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderGold2px
+ * @category border
+ *
+ * @description
+ * Add 2px border in gold color to the element.
+ */
+.u-borderYellowSea2px {
+  border: 2px solid @color-yellow-sea !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderDodgerBlue5px
+ * @category border
+ *
+ * @description
+ * Add 5px border in dodger blue color to the element.
+ */
+.u-borderDodgerBlue5px {
+  border: 5px solid @color-dodger-blue !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderRazzleDazzleRose5px
+ * @category border
+ *
+ * @description
+ * Add 5px border in razzle dazzle rose color to the element.
+ */
+.u-borderRazzleDazzleRose5px {
+  border: 5px solid @color-razzle-dazzle-rose !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderGold5px
+ * @category border
+ *
+ * @description
+ * Add 5px border in gold color to the element.
+ */
+.u-borderYellowSea5px {
+  border: 5px solid @color-yellow-sea !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderRightLeftAlabaster1px
+ * @category border
+ *
+ * @description
+ * Add 1px border left and right in alabaster color to the element.
+ */
+.u-borderRightLeftAlabaster1px {
+  border-right: 1px solid @color-alabaster !important;
+  border-left: 1px solid @color-alabaster !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderRightLeftAlto2px
+ * @category border
+ *
+ * @description
+ * Add 2px border left and right in alto color to the element.
+ */
+.u-borderRightLeftAlto2px {
+  border-right: 2px solid @color-alto !important;
+  border-left: 2px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name u-borderLeftAlabaster1px
+ * @category border
+ *
+ * @description
+ * Add 1px border left in alabaster color to the element.
+ */
+.u-borderLeftAlabaster1px {
+  border-left: 1px solid @color-alabaster !important;
+}
+
+/**
+ * @atdoc utility
+ * @name u-borderLeftAlabaster2px
+ * @category border
+ *
+ * @description
+ * Add 2px border left in alabaster color to the element.
+ */
+.u-borderLeftAlabaster2px {
+  border-left: 2px solid @color-alabaster !important;
+}
+
+/**
+ * @atdoc utility
+ * @name u-borderTopAlabaster2px
+ * @category border
+ *
+ * @description
+ * Add 2px border top in alabaster color to the element.
+ */
+.u-borderTopAlabaster2px {
+  border-top: 2px solid @color-alabaster !important;
+}
+
+/**
+ * @atdoc utility
+ * @name u-borderLeftAlto2px
+ * @category border
+ *
+ * @description
+ * Add 2px border left in alto color to the element.
+ */
+.u-borderLeftAlto2px {
+  border-left: 2px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name u-borderRightAlabaster2px
+ * @category border
+ *
+ * @description
+ * Add 2px border right in alabaster color to the element.
+ */
+.u-borderRightAlabaster2px {
+  border-right: 2px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderTopAlto2px
+ * @category border
+ *
+ * @description
+ * Add 2px top border in alto color to the element.
+ */
+.u-borderTopAlto2px {
+  border-top: 2px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderBottomAlto2px
+ * @category border
+ *
+ * @description
+ * Add 2px bottom border in alto color to the element.
+ */
+.u-borderBottomAlto2px {
+  border-bottom: 2px solid @color-alto !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderCodGray1px
+ * @category border
+ */
+.u-borderCodGray1px {
+  border: 1px solid @color-cod-gray;
+}
+
+/**
+ * @atdoc utility
+ * @name borderTopCodGray1px
+ * @category border
+ */
+.u-borderTopCodGray1px {
+  border-top: 1px solid @color-cod-gray;
+}
+
+/**
+ * @atdoc utility
+ * @name borderDodgerBlue2px
+ * @category border
+ */
+.u-borderDodgerBlue2px {
+  border: 2px solid @color-dodger-blue;
+}
+
+
+/**
+ * @atdoc utility
+ * @name borderWhite1px
+ * @category border
+ *
+ * @description
+ * Add 1px border in white color to the element.
+ */
+.u-borderWhite1px {
+  border: 1px solid @color-white !important;
+}
+
+/**
+ * @atdoc utility
+ * @name borderTNone
+ * @category border
+ *
+ * @description
+ * no top border for the element
+ */
+.u-borderTNone,
+.u-borderT0px {
+  border-top: 0 !important;;
+}

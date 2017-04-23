@@ -1,0 +1,439 @@
+@import "../variables";
+@import "../variables/site-header";
+@import "../mixins/media-queries";
+@import (reference) "./separator";
+
+/* Variables
+   ========================================================================== */
+
+@site-mobile-font-coeficient: 0.72;
+@site-section-alt-border-color: @color-alto;
+
+/* Mixins
+   ========================================================================== */
+
+/**
+ * @atdoc mixin
+ * @name site-heading
+ */
+.site-heading(@font-size, @line-height, @font-family: @font-family-heading, @font-weight: normal) {
+  font-family: @font-family;
+  font-size: @font-size;
+  font-weight: @font-weight;
+  line-height: @line-height;
+  color: @color-cod-gray;
+}
+
+/* Component
+   ========================================================================== */
+
+/**
+ * @atdoc component
+ * @name Site
+ *
+ * @description
+ * Component encapsulating the whole site. Should be on `body` tag.
+ *
+ * 1. 2 borders, each 1px. Site header is sticky by default
+ * 2. Nice font smoothing for capable browsers. Makes designers happy.
+ */
+.Site {
+  padding-top: @site-header-height * 2 + 2px; /* 1 */
+
+  -webkit-font-smoothing: antialiased; /* 2 */
+  -moz-osx-font-smoothing: grayscale; /* 2 */
+  color: @color-cod-gray;
+}
+
+/**
+ * @atdoc component
+ * @name Site:60em
+ * @type responsive
+ */
+.Site\:60em {
+  .at-least(60em, {
+    padding-top: @site-header-height;
+  });
+}
+
+/**
+ * @atdoc state
+ * @name withoutHeader
+ * @component Site:40em
+ */
+.Site\:40em.is-withoutHeader {
+  .at-least(40em, {
+    padding-top: 0;
+  });
+}
+
+/**
+ * @atdoc state
+ * @name withoutHeader
+ * @component Site:60em
+ */
+.Site\:60em.is-withoutHeader {
+  .at-least(60em, {
+    padding-top: 0;
+  });
+}
+
+/* Descendants
+   ========================================================================== */
+
+/**
+ * @atdoc descendant
+ * @name content
+ * @component Site
+ *
+ * @description
+ * Site content.
+ */
+.Site-content {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+}
+
+/**
+ * @atdoc descendant
+ * @name pageHeading
+ * @component Site
+ */
+.Site-pageHeading {
+  .site-heading(
+    ceil(@font-size-page * @site-mobile-font-coeficient),
+    ceil(@line-height-page * @site-mobile-font-coeficient)
+  );
+}
+
+/**
+ * @atdoc descendant
+ * @name pageHeading:60em
+ * @component Site
+ * @type responsive
+ */
+.Site-pageHeading\:60em {
+  .at-least(60em, {
+    .site-heading(@font-size-page, @line-height-page);
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeading
+ * @component Site
+ */
+.Site-sectionHeading {
+  .site-heading(
+    ceil(@font-size-section * @site-mobile-font-coeficient),
+    ceil(@line-height-section * @site-mobile-font-coeficient)
+  );
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeading:40em
+ * @component Site
+ * @type responsive
+ */
+.Site-sectionHeading\:40em {
+  .at-least(40em, {
+    .site-heading(@font-size-section, @line-height-section);
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeading:60em
+ * @component Site
+ * @type responsive
+ */
+.Site-sectionHeading\:60em {
+  .at-least(60em, {
+    .site-heading(@font-size-section, @line-height-section);
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeadingSmall
+ * @component Site
+ */
+.Site-sectionHeadingSmall {
+  .site-heading(
+          ceil(@font-size-xxxlarge * @site-mobile-font-coeficient),
+          ceil(@line-height-xxxlarge * @site-mobile-font-coeficient)
+  );
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeadingSmall:40em
+ * @component Site
+ * @type responsive
+ */
+.Site-sectionHeadingSmall\:40em {
+  .at-least(40em, {
+    .site-heading(@font-size-xxxlarge, @line-height-xxxlarge);
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeadingSmall:60em
+ * @component Site
+ * @type responsive
+ */
+.Site-sectionHeadingSmall\:60em {
+  .at-least(60em, {
+    .site-heading(@font-size-xxxlarge, @line-height-xxxlarge);
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeadingAlt
+ * @component Site
+ */
+.Site-sectionHeadingAlt {
+  .site-heading(
+    ceil(@font-size-xxxlarge * @site-mobile-font-coeficient),
+    ceil(@line-height-xxxlarge * @site-mobile-font-coeficient),
+    @font-family-copy,
+    @font-weight-light
+  );
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionHeadingAlt:60em
+ * @component Site
+ * @type responsive
+ */
+.Site-sectionHeadingAlt\:60em {
+  .at-least(60em, {
+    .site-heading(@font-size-xxxlarge, @line-height-xxxlarge, @font-family-copy, @font-weight-light);
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name subsectionHeading
+ * @component Site
+ */
+.Site-subsectionHeading {
+  .site-heading(
+    ceil(@font-size-subsection * @site-mobile-font-coeficient),
+    ceil(@line-height-subsection * @site-mobile-font-coeficient)
+  );
+}
+
+/**
+ * @atdoc descendant
+ * @name subsectionHeading:60em
+ * @component Site
+ * @type responsive
+ */
+.Site-subsectionHeading\:60em {
+  .at-least(60em, {
+    .site-heading(@font-size-subsection, @line-height-subsection);
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name subsectionHeadingUnderlined
+ * @component Site
+ */
+.Site-sectionHeadingUnderlined {
+  .site-heading(
+          ceil(@font-size-16px),
+          ceil(@line-height-medium),
+          @font-family-copy,
+          @font-weight-bold
+  );
+  text-transform: uppercase;
+
+  &:after {
+    .Separator();
+    .Separator--horizontal();
+    .Separator--codGrayLight();
+    .Separator--80px();
+    .Separator--thick();
+
+    content: "";
+    margin-top: 10px;
+  }
+
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name centered
+ * @component Site
+ * @descendant sectionHeadingUnderlined
+ */
+.Site-sectionHeadingUnderlined--centered {
+  text-align: center;
+
+  &:after {
+    margin: 10px auto 0;
+  }
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name right
+ * @component Site
+ * @descendant sectionHeadingUnderlined
+ */
+.Site-sectionHeadingUnderlined--right {
+  text-align: right;
+
+  &:after {
+    margin: 10px 0 0 auto;
+  }
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name white
+ * @component Site
+ * @descendant sectionHeadingUnderlined
+ */
+.Site-sectionHeadingUnderlined--white {
+  color: @color-white;
+
+  &:after {
+    .Separator--white();
+  }
+}
+
+
+/**
+ * @atdoc descendantModifier
+ * @name gray
+ * @component Site
+ * @descendant sectionHeadingUnderlined
+ */
+.Site-sectionHeadingUnderlined--gray {
+  color: @color-gray;
+
+  &:after {
+    .Separator--gray();
+  }
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name left:40em
+ * @component Site
+ * @descendant sectionHeadingUnderlined
+ */
+.Site-sectionHeadingUnderlined--left\:40em {
+  .at-least(40em, {
+    text-align: left;
+
+    &:after {
+      margin: 10px auto 0 0;
+    }
+  });
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name right:40em
+ * @component Site
+ * @descendant sectionHeadingUnderlined
+ */
+.Site-sectionHeadingUnderlined--right\:40em {
+  .at-least(40em, {
+    .Site-sectionHeadingUnderlined--right();
+  });
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name white:40em
+ * @component Site
+ * @descendant sectionHeadingUnderlined
+ * @type responsive
+ */
+.Site-sectionHeadingUnderlined--white\:40em {
+  .at-least(40em, {
+    .Site-sectionHeadingUnderlined--white();
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name sectionAlt
+ * @component Site
+ */
+.Site-sectionAlt {
+  border-bottom: 1px solid @site-section-alt-border-color;
+  background-color: @color-wild-sand;
+}
+
+/**
+ * @deprecated
+ * @atdoc descendant
+ * @name heading
+ * @component Site
+ *
+ * @description
+ * Site section heading.
+ */
+.Site-heading {
+  font-family: @font-family-primary;
+  font-size: @font-size-giga;
+  font-weight: 600;
+  color: @color-river-bed;
+  text-align: center;
+}
+
+/**
+ * @deprecated
+ * @atdoc descendant
+ * @name subheading
+ * @component Site
+ *
+ * @description
+ * Site section subheading.
+ */
+.Site-subheading {
+  font-family: @font-family-primary;
+  font-size: @font-size-kilo;
+  color: @color-river-bed;
+}
+
+/**
+ * @deprecated
+ * @atdoc descendant
+ * @name hint
+ * @component Site
+ *
+ * @description
+ * Hint message.
+ */
+.Site-hint {
+  font-family: @font-family-primary;
+  font-size: @font-size-gamma;
+  font-weight: 100;
+  color: @color-regent-gray;
+}
+
+/* Descendant modifiers
+   ========================================================================== */
+
+/**
+ * @atdoc descendantModifier
+ * @name borderTop
+ * @component Site
+ * @descendant sectionAlt
+ */
+.Site-sectionAlt--borderTop {
+  border-top: 1px solid @site-section-alt-border-color;
+}

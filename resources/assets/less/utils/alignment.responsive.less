@@ -1,0 +1,25 @@
+@import (reference) "./alignment";
+@import "../mixins/media-queries";
+
+
+/**
+ * @atdoc utility
+ * @name alignIEnd:40em
+ * @category alignment
+ */
+.u-alignIEnd\:40em {
+  .at-least(40em, {
+    .u-alignIEnd();
+  });
+}
+
+/**
+ * @atdoc utility
+ * @name order1:40em
+ * @category alignment
+ */
+.u-order1\:40em {
+  .at-least(40em, {
+    .u-order1();
+  });
+}

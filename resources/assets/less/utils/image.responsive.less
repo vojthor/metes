@@ -1,0 +1,10 @@
+@import "../mixins/media-queries";
+@import (reference) "image";
+
+.u-imageResponsive\:0-30em {
+  .at-most(30em, {
+    max-width: 100% !important;
+    vertical-align: middle !important;
+    height: auto !important;
+  });
+}

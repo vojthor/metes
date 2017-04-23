@@ -1,0 +1,135 @@
+@import "../variables";
+
+// METES stylesheet
+
+.formMetes {
+  font: 95% 'Dosis-Light', sans-serif;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
+  //background: #F7F7F7;
+}
+
+//.formMetes h1{
+//  background: @color-metes-blue;
+//  padding: 20px 0;
+//  font-size: 140%;
+//  font-weight: 300;
+//  text-align: center;
+//  color: #fff;
+//  margin: -16px -16px 16px -16px;
+//}
+//
+.formMetes input[type="text"],
+.formMetes input[type="date"],
+.formMetes input[type="datetime"],
+.formMetes input[type="email"],
+.formMetes input[type="number"],
+.formMetes input[type="search"],
+.formMetes input[type="time"],
+.formMetes input[type="url"],
+.formMetes input[type="password"],
+.formMetes textarea,
+.formMetes select {
+  transition: all 0.30s ease-in-out;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  padding: 3%;
+  color: #212121;
+  //font: 95% Arial, Helvetica, sans-serif;
+}
+
+.formMetes .form-control {
+  height: auto !important;
+}
+
+.formMetes input[type="text"]:focus,
+.formMetes input[type="date"]:focus,
+.formMetes input[type="datetime"]:focus,
+.formMetes input[type="email"]:focus,
+.formMetes input[type="number"]:focus,
+.formMetes input[type="search"]:focus,
+.formMetes input[type="time"]:focus,
+.formMetes input[type="url"]:focus,
+.formMetes input[type="password"]:focus,
+.formMetes textarea:focus,
+.formMetes select:focus {
+  box-shadow: 0 0 5px @color-metes-blue;
+  border: 1px solid @color-metes-blue;
+}
+
+.formMetes input[type="submit"],
+.formMetes input[type="button"] {
+  box-sizing: border-box;
+  width: 100%;
+  background: @color-metes-blue;
+  border-bottom: 2px solid @color-metes-lightBlue;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  padding: 3%;
+  color: #fff;
+}
+
+.formMetes input[type="submit"]:hover,
+.formMetes input[type="button"]:hover{
+  background: @color-metes-darkBlue;
+}
+
+.formMetes .number {
+  background: @color-metes-blue;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 15px 15px 15px 0px;
+}
+
+.formMetes.formMetesButtonWrap {
+  padding-top: 0px;
+}
+
+.buttonSuccess {
+  background-color: #67de5f !important;
+  border-bottom: 2px solid #4ff341 !important;
+}
+
+.formMetes .checkbox label {
+  font-size: 1.2rem;
+  margin-left: 15px;
+  padding-bottom: 15px;
+}
+
+.formMetes .checkbox input {
+  padding: 15px;
+  margin-top: -5px;
+  margin-left: -35px;
+}
+
+.formMetes {
+
+  & .form-group {
+    //margin-left: auto !important;
+    //margin-right: auto !important;
+    margin-bottom: 0px;
+  }
+
+  & .control-label {
+    //float: none;
+    //width: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+    font-size: 1.2rem;
+  }
+}
+

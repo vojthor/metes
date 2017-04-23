@@ -1,0 +1,312 @@
+@import "../variables";
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name linkMariner
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with mariner color and blaze orange on hover.
+ */
+.u-linkMariner {
+  color: @color-mariner !important;
+
+  &:hover {
+    color: @color-blaze-orange !important;
+  }
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name linkMarinerUnderlined
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with mariner color and underlined on hover.
+ */
+.u-linkMarinerUnderlined {
+  color: @color-mariner !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkWhiteUnderlined
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with white color that is underlined on hover.
+ */
+.u-linkWhiteUnderlined {
+  color: @color-white !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkTransparentUnderlined
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with white-transparent color that is underlined on hover.
+ */
+.u-linkTransparentUnderlined {
+  color: fadeout(@color-white, 40%) !important;
+
+  &:hover {
+    color: @color-white !important;
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkMercuryUnderlined
+ * @category link
+ * @category text
+ */
+.u-linkMercuryUnderlined {
+  color: @color-mercury!important;
+
+  &:hover {
+    color: @color-white !important;
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name linkSubmarine
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with submarine color that is white on hover.
+ */
+.u-linkSubmarine {
+  color: @color-submarine !important;
+
+  &:hover {
+    color: @color-white !important;
+  }
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name linkPaleSky
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with pale sky color that is white on hover.
+ */
+.u-linkPaleSky {
+  color: @color-pale-sky !important;
+
+  &:hover {
+    color: @color-white !important;
+  }
+
+  &:active {
+    color: darken(@color-white, 20%) !important;
+
+    transition: all 50ms cubic-bezier(0.420, 0.000, 0.580, 1.000) !important;
+  }
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name linkSubmarineUnderlined
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with submarine color that is underlined on hover.
+ */
+.u-linkSubmarineUnderlined {
+  color: @color-submarine !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name linkScorpionUnderlined
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with scorpion color that is underlined on hover.
+ */
+.u-linkScorpionUnderlined {
+  color: @color-scorpion !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name fakeLink
+ * @category link
+ * @category text
+ *
+ * @description
+ * Pretend to be a link with pointer and underline on hover.
+ */
+.u-fakeLink {
+  cursor: pointer !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name linkSun
+ * @category link
+ * @category text
+ *
+ * @description
+ * Link with sun color that is underlined on hover.
+ */
+.u-linkSunUnderlined {
+  color: @color-sun !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkDodgerBlue
+ * @category link
+ * @category text
+ */
+.u-linkDodgerBlue {
+  color: @color-dodger-blue !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkCodGrayToDodgerBlue
+ * @category link
+ * @category text
+ */
+.u-linkCodGrayToDodgerBlue {
+  color: @color-cod-gray !important;
+
+  &:hover {
+    color: @color-dodger-blue !important;
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkCodGrayToGray
+ * @category link
+ * @category text
+ */
+.u-linkCodGrayToGray {
+  color: @color-cod-gray !important;
+
+  &:hover {
+    color: @color-gray !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkDustyGray
+ * @category link
+ * @category text
+ */
+.u-linkDustyGray {
+  color: @color-dusty-gray !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkDoveGray
+ * @category link
+ * @category text
+ */
+.u-linkDoveGray {
+  color: @color-dove-gray !important;
+
+  &:hover {
+    text-decoration: none !important;
+    color: @color-dodger-blue !important;
+  }
+}
+
+/**
+ * @atdoc state
+ * @name active
+ * @category link
+ * @category text
+ */
+.u-linkDoveGray.is-active {
+  color: @color-dodger-blue !important;
+}
+
+/**
+ * @atdoc utility
+ * @name linkBlack
+ * @category link
+ * @category text
+ */
+.u-linkBlack {
+  color: @color-black !important;
+
+  &:hover {
+    text-decoration: none !important;
+    color: @color-black !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name linkWhite
+ * @category link
+ * @category text
+ */
+.u-linkWhite {
+  color: @color-white !important;
+
+  &:hover {
+    text-decoration: none !important;
+    color: @color-white !important;
+  }
+}

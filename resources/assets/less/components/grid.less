@@ -1,0 +1,612 @@
+@import "../mixins/compatibility";
+
+/* Component
+   ========================================================================== */
+
+/**
+ * @atdoc component
+ * @name Grid
+ *
+ * @description
+ * All content must be contained within child `Grid-cell` elements.
+ *
+ * Make use of dimension utilities, or components that extend `Grid` in order
+ * to apply particular widths to cells.
+ *
+ * 1. Block fallback.
+ * 2. Ensure consistent default alignment.
+ * 3. Remove inter-cell whitespace that appears between `inline-block` child
+ *    elements.
+ *
+ * #no-IE9-replace
+ *
+ * @example
+  <example module="GridExample">
+    <file name="index.html">
+      <div class="Grid">
+        <div class="Grid-cell u-size1of2"></div>
+        <div class="Grid-cell u-size1of2"></div>
+        <div class="Grid-cell u-size1of3"></div>
+        <div class="Grid-cell u-size1of3"></div>
+      </div>
+
+      <div class="Grid Grid--justifyCenter">
+        <div class="Grid-cell u-size1of3"></div>
+        <div class="Grid-cell u-size1of3"></div>
+      </div>
+    </file>
+  </example>
+ */
+.Grid {
+  display: block; /* 1 */
+  display: flex;
+
+  padding: 0; /* 1 */
+  margin: 0; /* 1 */
+  justify-content: flex-start; /* 2 */
+  text-align: left; /* 2 */
+
+  /* 3 */
+  .no-flexbox({
+    font-size: 0;
+  });
+}
+
+/* Component modifiers
+   ========================================================================== */
+
+/**
+ * @atdoc componentModifier
+ * @name inline
+ * @component Grid
+ *
+ * @description
+ * Make the grid inline.
+ *
+ * 1. Inline block fallback.
+ */
+.Grid--inline {
+  display: inline-block; /* 1 */
+  display: inline-flex;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name fit
+ * @component Grid
+ *
+ * @description
+ * Make all grid cells shrink wrap their content.
+ */
+.Grid--fit > .Grid-cell {
+  width: auto;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name wrap
+ * @component Grid
+ *
+ * @description
+ * Allows the grid cells to wrap instead of overflowing in 1 row.
+ *
+ * 1. Wrap flex items.
+ * 2. Fallback to inline block layout when flex wrapping is not supported.
+ */
+.Grid--wrap {
+  flex-wrap: wrap; /* 1 */
+
+  /* 2 */
+  .no-flexbox.flexboxlegacy & {
+    display: block;
+    font-size: 0;
+
+    > .Grid-cell {
+      .inline-block();
+
+      font-size: 13px;
+      font-size: .8125rem;
+    }
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name wrap
+ * @component Grid
+ *
+ * @description
+ * Allows the grid cells to wrap instead of overflowing in 1 row.
+ *
+ * 1. Wrap flex items.
+ * 2. Fallback to inline block layout when flex wrapping is not supported.
+ */
+.Grid--wrap {
+  flex-wrap: wrap; /* 1 */
+
+  /* 2 */
+  .no-flexbox.flexboxlegacy & {
+    display: block;
+    font-size: 0;
+
+    > .Grid-cell {
+      .inline-block();
+
+      font-size: 13px;
+      font-size: .8125rem;
+    }
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name justifyLeft
+ * @component Grid
+ *
+ * @description
+ * Align all grid cells to right.
+ */
+.Grid--justifyLeft {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name justifyCenter
+ * @component Grid
+ *
+ * @description
+ * Horizontally center all grid cells.
+ *
+ * Allows for automatic cell centering irrespective of the number of
+ * cells in the grid.
+ */
+.Grid--justifyCenter {
+  justify-content: center;
+  text-align: center;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name justifyRight
+ * @component Grid
+ *
+ * @description
+ * Align all grid cells to right.
+ */
+.Grid--justifyRight {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name alignMiddle
+ * @component Grid
+ *
+ * @description
+ * Vertically align all grid cells to middle.
+ */
+.Grid--alignMiddle > .Grid-cell {
+  justify-content: center;
+  vertical-align: middle;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name alignBottom
+ * @component Grid
+ *
+ * @description
+ * Vertically align all grid cells to bottom.
+ */
+.Grid--alignBottom > .Grid-cell {
+  justify-content: flex-end;
+  vertical-align: bottom;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name maximized
+ * @component Grid
+ *
+ * @description
+ * Use as much space as possible.
+ */
+.Grid--maximized {
+  flex-grow: 1;
+
+  > .Grid-cell {
+    flex-grow: 1;
+  }
+}
+
+/**
+ * Modifiers for creating gutter between grid cells.
+ *
+ * .Grid--gutter<ORIENTATION><Size>
+ *
+ * <ORIENTATION> can be:
+ * * `A` = all
+ * * `H` = horizontal
+ * * `V` = vertical
+ *
+ * <Size> must be in pixels: Grid--gutterA5px
+ */
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH2px
+ * @name gutterV2px
+ * @name gutterA2px
+ * @component Grid
+ */
+.Grid--gutterA2px,
+.Grid--gutterH2px {
+  margin-left: -2px;
+}
+
+.Grid--gutterA2px > .Grid-cell,
+.Grid--gutterH2px > .Grid-cell {
+  padding-left: 2px;
+}
+
+.Grid--gutterA2px,
+.Grid--gutterV2px {
+  margin-top: -2px;
+}
+
+.Grid--gutterA2px > .Grid-cell,
+.Grid--gutterV2px > .Grid-cell {
+  padding-top: 2px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH5px
+ * @name gutterV5px
+ * @name gutterA5px
+ * @component Grid
+ *
+ * @description
+ * Small-sized cell gutter.
+ */
+.Grid--gutterA5px,
+.Grid--gutterH5px {
+  margin-left: -5px;
+}
+
+.Grid--gutterA5px > .Grid-cell,
+.Grid--gutterH5px > .Grid-cell {
+  padding-left: 5px;
+}
+
+.Grid--gutterA5px,
+.Grid--gutterV5px {
+  margin-top: -5px;
+}
+
+.Grid--gutterA5px > .Grid-cell,
+.Grid--gutterV5px > .Grid-cell {
+  padding-top: 5px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH10px
+ * @name gutterV10px
+ * @name gutterA10px
+ * @component Grid
+ *
+ * @description
+ * Medium-sized cell gutter.
+ */
+.Grid--gutterA10px,
+.Grid--gutterH10px {
+  margin-left: -10px;
+}
+
+.Grid--gutterA10px > .Grid-cell,
+.Grid--gutterH10px > .Grid-cell {
+  padding-left: 10px;
+}
+
+.Grid--gutterA10px,
+.Grid--gutterV10px {
+  margin-top: -10px;
+}
+
+.Grid--gutterA10px > .Grid-cell,
+.Grid--gutterV10px > .Grid-cell {
+  padding-top: 10px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH15px
+ * @name gutterV15px
+ * @name gutterA15px
+ * @component Grid
+ *
+ * @description
+ * Regular-sized cell gutter.
+ */
+.Grid--gutterA15px,
+.Grid--gutterH15px {
+  margin-left: -15px;
+}
+
+.Grid--gutterA15px > .Grid-cell,
+.Grid--gutterH15px > .Grid-cell {
+  padding-left: 15px;
+}
+
+.Grid--gutterA15px,
+.Grid--gutterV15px {
+  margin-top: -15px;
+}
+
+.Grid--gutterA15px > .Grid-cell,
+.Grid--gutterV15px > .Grid-cell {
+  padding-top: 15px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH20px
+ * @name gutterV20px
+ * @name gutterA20px
+ * @component Grid
+ *
+ * @description
+ * Large-sized cell gutter.
+ */
+.Grid--gutterA20px,
+.Grid--gutterH20px {
+  margin-left: -20px;
+}
+
+.Grid--gutterA20px > .Grid-cell,
+.Grid--gutterH20px > .Grid-cell {
+  padding-left: 20px;
+}
+
+.Grid--gutterA20px,
+.Grid--gutterV20px {
+  margin-top: -20px;
+}
+
+.Grid--gutterA20px > .Grid-cell,
+.Grid--gutterV20px > .Grid-cell {
+  padding-top: 20px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH30px
+ * @name gutterV30px
+ * @name gutterV30px
+ * @component Grid
+ *
+ * @description
+ * XLarge-sized cell gutter.
+ */
+.Grid--gutterV30px,
+.Grid--gutterH30px {
+  margin-left: -30px;
+}
+
+.Grid--gutterV30px > .Grid-cell,
+.Grid--gutterH30px > .Grid-cell {
+  padding-left: 30px;
+}
+
+.Grid--gutterV30px,
+.Grid--gutterV30px {
+  margin-top: -30px;
+}
+
+.Grid--gutterV30px > .Grid-cell,
+.Grid--gutterV30px > .Grid-cell {
+  padding-top: 30px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH40px
+ * @name gutterV40px
+ * @name gutterA40px
+ * @component Grid
+ *
+ * @description
+ * Huge-sized cell gutter.
+ */
+.Grid--gutterA40px,
+.Grid--gutterH40px {
+  margin-left: -40px;
+}
+
+.Grid--gutterA40px > .Grid-cell,
+.Grid--gutterH40px > .Grid-cell {
+  padding-left: 40px;
+}
+
+.Grid--gutterA40px,
+.Grid--gutterV40px {
+  margin-top: -40px;
+}
+
+.Grid--gutterA40px > .Grid-cell,
+.Grid--gutterV40px > .Grid-cell {
+  padding-top: 40px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH60px
+ * @name gutterV60px
+ * @name gutterA60px
+ * @component Grid
+ *
+ * @description
+ * Enormous-sized cell gutter.
+ */
+.Grid--gutterA60px,
+.Grid--gutterH60px {
+  margin-left: -60px;
+}
+
+.Grid--gutterA60px > .Grid-cell,
+.Grid--gutterH60px > .Grid-cell {
+  padding-left: 60px;
+}
+
+.Grid--gutterA60px,
+.Grid--gutterV60px {
+  margin-top: -60px;
+}
+
+.Grid--gutterA60px > .Grid-cell,
+.Grid--gutterV60px > .Grid-cell {
+  padding-top: 60px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutterH100px
+ * @name gutterV100px
+ * @name gutterA100px
+ * @component Grid
+ *
+ * @description
+ * Extensive-sized cell gutter.
+ */
+.Grid--gutterA100px,
+.Grid--gutterH100px {
+  margin-left: -100px;
+}
+
+.Grid--gutterA100px > .Grid-cell,
+.Grid--gutterH100px > .Grid-cell {
+  padding-left: 100px;
+}
+
+.Grid--gutterA100px,
+.Grid--gutterV100px {
+  margin-top: -100px;
+}
+
+.Grid--gutterA100px > .Grid-cell,
+.Grid--gutterV100px > .Grid-cell {
+  padding-top: 100px;
+}
+
+/* Descendants
+   ========================================================================== */
+
+/**
+ * @atdoc descendant
+ * @name cell
+ * @component Grid
+ *
+ * @description
+ * No explicit width by default. Rely on combining `Grid-cell` with a dimension
+ * utility or component that extends `Grid`.
+ *
+ * 1. Inline-block fallback.
+ * 2. Do not grow nor shrink by default.
+ * 3. Flow in column direction (which mimics block layout).
+ * 4. Make cells full-width by default.
+ * 5. Controls vertical positioning of cells.
+ * 6. Keeps content correctly aligned with the grid direction.
+ * 7. Reset font size change made in `Grid`.
+ */
+.Grid-cell {
+  box-sizing: border-box;
+  .inline-block(); /* 1 */
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex: 0 0 auto; /* 2 */
+  flex-direction: column; /* 3 */
+  width: 100%; /* 4 */
+  justify-content: flex-start;
+  vertical-align: top; /* 5 */
+
+  text-align: left; /* 6 */
+
+  /* 7 */
+  .no-flexbox({
+    font-size: .8125rem;
+  });
+}
+
+/* Descendant modifiers
+   ========================================================================== */
+
+/**
+ * @atdoc descendantModifier
+ * @name fit
+ * @component Grid
+ * @descendant cell
+ *
+ * @description
+ * Make one cell shrink wrap its content.
+ */
+.Grid-cell--fit {
+  width: auto;
+  flex-shrink: 1;
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name center
+ * @component Grid
+ * @descendant cell
+ *
+ * @description
+ * Horizontally center one cell.
+ *
+ * Set a specific cell to be horizontally centered. Doesn't affect
+ * any other cells. The cell has to have `width` specified. Can still contain
+ * a `Grid` component.
+ */
+.Grid-cell--center {
+  margin-right: auto;
+  margin-left: auto;
+
+  .no-flexbox({
+    display: block;
+  });
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name right
+ * @component Grid
+ * @descendant cell
+ *
+ * @description
+ * Align cell to right.
+ */
+.Grid-cell--right {
+  margin-left: auto;
+
+  .no-flexbox({
+    display: block;
+  });
+}
+
+/**
+ * @atdoc descendantModifier
+ * @name maximized
+ * @component Grid
+ * @descendant cell
+ *
+ * @description
+ * Make cell use as much space as possible.
+ */
+.Grid-cell--maximized {
+  flex-grow: 1;
+}

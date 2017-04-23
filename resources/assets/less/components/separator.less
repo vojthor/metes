@@ -1,0 +1,218 @@
+@import "../variables";
+@import "../variables/site-header";
+@import "../mixins/media-queries";
+
+/* Component
+   ========================================================================== */
+
+/**
+ * @atdoc component
+ * @name Separator
+ *
+ * @description
+ * Generic component for separators. Defaults to vertical one (for separating
+ * horizontal lists).
+ */
+.Separator {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  vertical-align: middle;
+
+  background-color: rgba(255, 255, 255, .5);
+}
+
+/* Component modifiers
+   ========================================================================== */
+
+
+/**
+ * @atdoc componentModifier
+ * @name siteHeader
+ * @component Separator
+ *
+ * @description
+ * Site header separator.
+ */
+.Separator--siteHeader {
+  height: @site-header-height;
+  background-color: @site-header-separator-color;
+}
+
+
+/**
+ * @atdoc componentModifier
+ * @name horizontal
+ * @component Separator
+ *
+ * @description
+ * Horizontal separator.
+ */
+.Separator--horizontal {
+  display: block;
+  width: auto;
+  height: 1px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name horizontal
+ * @component Separator
+ *
+ * @description
+ * Horizontal separator.
+ */
+.Separator--thick {
+  height: 2px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name 40px
+ * @component Separator
+ *
+ * @description
+ * Horizontal separator.
+ */
+.Separator--40px {
+  width: 40px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name 80px
+ * @component Separator
+ *
+ * @description
+ * Horizontal separator.
+ */
+.Separator--80px {
+  width: 80px;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name light
+ * @component Separator
+ *
+ * @description
+ * Light separator.
+ */
+.Separator--light {
+  background-color: darken(@color-white, 7%);
+}
+
+/**
+ * @atdoc componentModifier
+ * @name silver
+ * @component Separator
+ *
+ * @description
+ * Silver separator.
+ */
+.Separator--silver {
+  background-color: @color-silver;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gray
+ * @component Separator
+ *
+ * @description
+ * Gray separator.
+ */
+.Separator--gray {
+  background-color: @color-gray;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name alto
+ * @component Separator
+ *
+ * @description
+ * Gray separator.
+ */
+.Separator--alto {
+  background-color: @color-alto;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name codGrayLight
+ * @component Separator
+ */
+.Separator--codGrayLight {
+  background-color: lighten(@color-cod-gray, 12.1569);
+}
+
+/**
+ * @atdoc componentModifier
+ * @name paleSky
+ * @component Separator
+ *
+ * @description
+ * Pale sky separator.
+ */
+.Separator--paleSky {
+  background-color: @color-pale-sky;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name white
+ * @component Separator
+ *
+ * @description
+ * White separator.
+ */
+.Separator--white {
+  background-color: @color-white;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name mercury
+ * @component Separator
+ *
+ * @description
+ * Mercury separator.
+ */
+.Separator--mercury {
+  background-color: @color-mercury;
+}
+
+/**
+ * @atdoc componentModifier
+ * @name centered:0-40em
+ * @component Separator
+ */
+.Separator--centered\:0-40em {
+  .at-most(40em, {
+    margin: 0 auto;
+  });
+}
+
+/**
+ * @atdoc componentModifier
+ * @name right:40em
+ * @component Separator
+ */
+.Separator--right\:40em {
+  .at-least(40em, {
+    margin: 0 0 0 auto;
+  });
+}
+
+/**
+ * @atdoc componentModifier
+ * @name white:40em
+ * @component Separator
+ */
+.Separator--white\:40em {
+  .at-least(40em, {
+    .Separator--white();
+  });
+}

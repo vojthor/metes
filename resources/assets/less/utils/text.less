@@ -1,0 +1,790 @@
+@import "../variables";
+
+
+/**
+ * @atdoc utility
+ * @name textTruncate
+ * @category text
+ *
+ * @description
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ *
+ * @example
+  <example module="textTruncateExample>
+    <file name="index.html">
+      <p class="u-textTruncate">
+        Sed posuere consectetur est at lobortis.
+      </p>
+    </file>
+  </example>
+ */
+.u-textTruncate {
+  overflow: hidden !important;
+  max-width: 100% !important; /* 1 */
+
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important; /* 2 */
+}
+
+/**
+ * @atdoc utility
+ * @name textBreak
+ * @category text
+ *
+ * @description
+ * Break strings when their length exceeds the width of their container.
+ *
+ * @example
+  <example module="textTruncateExample>
+    <file name="index.html">
+      <p class="u-textBreak">
+        <a href="#">
+         https://github.com/bits-sass/utils-text
+        </a>
+      </p>
+    </file>
+  </example>
+ */
+.u-textBreak {
+  word-wrap: break-word !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textNoWrap
+ * @category text
+ *
+ * @description
+ * Prevent whitespace wrapping.
+ */
+.u-textNoWrap {
+  white-space: nowrap !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textFontFamilyCopy
+ * @category text
+ *
+ * @description
+ * Set font family to @font-family-copy.
+ */
+.u-textFontFamilyCopy {
+  font-family: @font-family-copy !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textFontFamilyHeading
+ * @category text
+ *
+ * @description
+ * Set font family to @font-family-heading.
+ */
+.u-textFontFamilyHeading {
+  font-family: @font-family-heading !important;
+}
+
+/**
+ * @atdoc utility
+ * @name weightLight
+ * @category text
+ *
+ * @description
+ * Use light-weighted font.
+ */
+.u-weightLight {
+  font-weight: @font-weight-light !important;
+}
+
+/**
+ * @atdoc utility
+ * @name weightRegular
+ * @category text
+ *
+ * @description
+ * Use regular-weighted font.
+ */
+.u-weightRegular {
+  font-weight: @font-weight-regular !important;
+}
+
+/**
+ * @atdoc utility
+ * @name weightSemibold
+ * @category text
+ *
+ * @description
+ * Use semibold-weighted font.
+ */
+.u-weightSemibold {
+  font-weight: @font-weight-semibold !important;
+}
+
+/**
+ * @atdoc utility
+ * @name weightBold
+ * @category text
+ *
+ * @description
+ * Use bold-weighted font.
+ */
+.u-weightBold {
+  font-weight: @font-weight-bold !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textItalic
+ * @category text
+ *
+ * @description
+ * Use italic font.
+ */
+.u-textItalic {
+  font-style: italic !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textLeft
+ * @category alignment
+ * @category text
+ *
+ * @description
+ * Align text to left.
+ */
+.u-textLeft {
+  text-align: left !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textCenter
+ * @category alignment
+ * @category text
+ *
+ * @description
+ * Center the text.
+ */
+.u-textCenter {
+  text-align: center !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textRight
+ * @category alignment
+ * @category text
+ *
+ * @description
+ * Align text to right.
+ */
+.u-textRight {
+  text-align: right !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textInheritColor
+ * @category color
+ * @category text
+ *
+ * @description
+ * Inherit the ancestor's text color.
+ */
+.u-textInheritColor {
+  color: inherit !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textInheritAllColor
+ * @category color
+ * @category text
+ *
+ * @description
+ * Inherit the ancestor's text color for all states.
+ */
+.u-textInheritAllColor {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit !important;
+  }
+}
+
+/**
+ * @atdoc utility
+ * @name textUnderlined
+ * @category text
+ *
+ * @description
+ * Decorate text as underlined.
+ */
+.u-textUnderlined {
+  text-decoration: underline !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textLineThrough
+ * @category text
+ */
+.u-textLineThrough,
+.u-textStrikeThrough {
+  text-decoration: line-through !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textUpperCase
+ * @category text
+ *
+ * @description
+ * Transform text to upper case.
+ */
+.u-textUpperCase {
+  text-transform: uppercase !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textLowerCase
+ * @category text
+ *
+ * @description
+ * Transform text to lower case.
+ */
+.u-textLowerCase {
+  text-transform: lowercase !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textCapitalize
+ * @category text
+ *
+ * @description
+ * Capitalize the text.
+ */
+.u-textCapitalize {
+  text-transform: capitalize !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textDefaultCase
+ * @category text
+ *
+ * @description
+ * Remove all text transformations.
+ */
+.u-textDefaultCase {
+  text-transform: none !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text9px
+ * @category dimension
+ * @category text
+ */
+.u-text9px {
+  font-size: @font-size-teeny-tiny !important;
+  line-height: @line-height-teeny-tiny !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text10px
+ * @category dimension
+ * @category text
+ */
+.u-text10px {
+  font-size: @font-size-tiny !important;
+  line-height: @line-height-tiny !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text11px
+ * @category dimension
+ * @category text
+ */
+.u-text11px {
+  font-size: @font-size-xxxsmall !important;
+  line-height: @line-height-xxxsmall !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text12px
+ * @category dimension
+ * @category text
+ */
+.u-text12px {
+  font-size: @font-size-xxsmall !important;
+  line-height: @line-height-xxsmall !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text13px
+ * @category dimension
+ * @category text
+ */
+.u-text13px {
+  font-size: @font-size-xsmall !important;
+  line-height: @line-height-xsmall !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text14px
+ * @category dimension
+ * @category text
+ */
+.u-text14px {
+  font-size: @font-size-small !important;
+  line-height: @line-height-small !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text15px
+ * @category dimension
+ * @category text
+ */
+.u-text15px {
+  font-size: @font-size-smedium !important;
+  line-height: @line-height-smedium !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text16px
+ * @category dimension
+ * @category text
+ */
+.u-text16px {
+  font-size: @font-size-medium !important;
+  line-height: @line-height-medium !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text18px
+ * @category dimension
+ * @category text
+ */
+.u-text18px {
+  font-size: @font-size-large !important;
+  line-height: @line-height-large !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text21px
+ * @category dimension
+ * @category text
+ */
+.u-text21px {
+  font-size: @font-size-xlarge !important;
+  line-height: @line-height-xlarge !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text23px
+ * @category dimension
+ * @category text
+ */
+.u-text23px {
+  font-size: @font-size-23px !important;
+  line-height: @line-height-xlarge !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text26px
+ * @category dimension
+ * @category text
+ */
+.u-text26px {
+  font-size: @font-size-xxlarge !important;
+  line-height: @line-height-xxlarge !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text31px
+ * @category dimension
+ * @category text
+ */
+.u-text31px {
+  font-size: @font-size-xxxlarge !important;
+  line-height: @line-height-xxxlarge !important;
+}
+
+/**
+ * @atdoc utility
+ * @name text34px
+ * @category dimension
+ * @category text
+ */
+.u-text34px {
+  font-size: @font-size-huge !important;
+  line-height: @line-height-huge !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textSubsection
+ * @category dimension
+ * @category text
+ */
+.u-textSubsection {
+  font-size: @font-size-subsection !important;
+  line-height: @line-height-subsection !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textSection
+ * @category dimension
+ * @category text
+ */
+.u-text41px,
+.u-textSection {
+  font-size: @font-size-section !important;
+  line-height: @line-height-section !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textPage
+ * @category dimension
+ * @category text
+ */
+.u-text55px,
+.u-textPage {
+  font-size: @font-size-page !important;
+  line-height: @line-height-page !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textLineHeightMatch
+ * @category text
+ *
+ * @description
+ * Make line height of text match its font size.
+ */
+.u-textLineHeightMatch {
+  line-height: 1 !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textLineHeightMedium
+ * @category text
+ *
+ * @description
+ * Make line height a bit more.
+ */
+.u-textLineHeightMedium {
+  line-height: 1.3 !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textLineHeightLarge
+ * @category text
+ *
+ * @description
+ * Make line height large.
+ */
+.u-textLineHeightLarge {
+  line-height: 2.3 !important;
+}
+
+/**
+ * @name textVanishWhite
+ * @category text
+ *
+ * @description
+ * Adds a top-bottom gradient from transparent to pure white.
+ * IMPORTANT: parent element must have `position: relative`
+ */
+.u-textVanishWhite {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textFemto
+ * @category dimension
+ * @category text
+ */
+.u-textFemto {
+  font-size: @font-size-femto !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textPiko
+ * @category dimension
+ * @category text
+ */
+.u-textPiko {
+  font-size: @font-size-piko !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textNano
+ * @category dimension
+ * @category text
+ */
+.u-textNano {
+  font-size: @font-size-nano !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textMicro
+ * @category dimension
+ * @category text
+ */
+.u-textMicro {
+  font-size: @font-size-micro !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textMilli
+ * @category dimension
+ * @category text
+ */
+.u-textMilli {
+  font-size: @font-size-milli !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textDefault
+ * @category dimension
+ * @category text
+ */
+.u-textDefault {
+  font-size: @font-size-default !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textAlpha
+ * @category dimension
+ * @category text
+ */
+.u-textAlpha {
+  font-size: @font-size-alpha !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textBeta
+ * @category dimension
+ * @category text
+ */
+.u-textBeta {
+  font-size: @font-size-beta !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textGamma
+ * @category dimension
+ * @category text
+ */
+.u-textGamma {
+  font-size: @font-size-gamma !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textDelta
+ * @category dimension
+ * @category text
+ */
+.u-textDelta {
+  font-size: @font-size-delta !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textEpsilon
+ * @category dimension
+ * @category text
+ */
+.u-textEpsilon {
+  font-size: @font-size-epsilon !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textZeta
+ * @category dimension
+ * @category text
+ */
+.u-textZeta {
+  font-size: @font-size-zeta !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textKilo
+ * @category dimension
+ * @category text
+ */
+.u-textKilo {
+  font-size: @font-size-kilo !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textMega
+ * @category dimension
+ * @category text
+ */
+.u-textMega {
+  font-size: @font-size-mega !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textGiga
+ * @category dimension
+ * @category text
+ */
+.u-textGiga {
+  font-size: @font-size-giga !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textTera
+ * @category dimension
+ * @category text
+ */
+.u-textTera {
+  font-size: @font-size-tera !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textPeta
+ * @category dimension
+ * @category text
+ */
+.u-textPeta {
+  font-size: @font-size-peta !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textExa
+ * @category dimension
+ * @category text
+ */
+.u-textExa {
+  font-size: @font-size-exa !important;
+}
+
+/**
+ * @deprecated
+ * @atdoc utility
+ * @name textRegentGray
+ * @category color
+ * @category text
+ */
+.u-textRegentGray {
+  color: @color-regent-gray !important;
+}
+
+/**
+ * @atdoc utility
+ * @name textSpacingPoint2em
+ * @category spacing
+ * @category text
+ */
+.u-textSpacingPoint2em {
+  letter-spacing: 0.2em;
+}
+
+/**
+ * @atdoc utility
+ * @name textReset
+ * @category dimension
+ * @category text
+ */
+.u-textReset {
+  font-size: inherit;
+  display: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.u-textDroidSerif {
+  font-family: @font-family-heading !important;
+}
+
+.u-textDosis {
+  font-family: 'Dosis-Light', sans-serif !important;
+}
+
+.u-text1rem {
+  font-size: 1rem;
+}
+
+.u-text1_3rem {
+  font-size: 1.3rem;
+}
+
+.u-text1_5rem {
+  font-size: 1.5rem;
+}
+.u-text2rem {
+  font-size: 2rem;
+}

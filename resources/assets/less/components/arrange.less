@@ -1,0 +1,367 @@
+@import "../mixins/compatibility";
+
+/* Component
+   ========================================================================== */
+
+/**
+ * @atdoc component
+ * @name Arrange
+ *
+ * @description
+ * This component lets you lay out a row of cells in various ways. You can
+ * specify whether a cell should be wide enough to fit its content, or take up
+ * the remaining space in the row. It's also possible to give all cells an
+ * equal width, and to control their vertical alignment.
+ *
+ * `Arrange` must only contain 'Arrange-sizeFit' and 'Arrange-sizeFill' child
+ * nodes.
+ *
+ * It's recommended that you only use one 'Arrange-sizeFill' per component
+ * instance (unless using the `Arrange--equally` modifier; see below). The
+ * first 'Arrange-sizeFill' in the component's source order will not share the
+ * extra space with any subsequent nodes of that class.
+ *
+ * 1. Protect against the component expanding beyond the confines of its
+ *    container if properties affecting the box-model are applied to the
+ *    component. Mainly necessary because of (5).
+ * 2. Table layout as fallback.
+ * 3. Zero out the default spacing that might be on an element (e.g., `ul`).
+ * 4. Make sure the component fills at least the full width of its parent.
+ * 5. Reset the table-layout algorithm in case a component is nested.
+ *
+ * @example
+  <example module="ArrangeExample">
+    <file name="index.html">
+      <div class="Arrange Arrange--middle">
+        <div class="Arrange-sizeFit">
+          [content]
+        </div>
+        <div class="Arrange-sizeFill">
+          [content]
+        </div>
+        <div class="Arrange-sizeFit">
+          [content]
+        </div>
+      </div>
+    </file>
+  </example>
+ */
+.Arrange {
+  box-sizing: border-box; /* 1 */
+  display: table; /* 2 */
+  display: flex;
+  margin: 0; /* 3 */
+  padding: 0; /* 3 */
+  min-width: 100%; /* 4 */
+
+  table-layout: auto; /* 5 */
+  border-collapse: separate;
+}
+
+/* Component modifiers
+   ========================================================================== */
+
+/**
+ * @atdoc componentModifier
+ * @name middle
+ * @component Arrange
+ *
+ * @description
+ * Vertically align all cells to middle.
+ *
+ * 1. Flex direction is columnar -> axis are switched.
+ * 2. Table layout fallback.
+ */
+.Arrange--middle {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    justify-content: center; /* 1 */
+
+    /* 1 */
+    .no-flexbox({
+      vertical-align: middle;
+    });
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name bottom
+ * @component Arrange
+ *
+ * @description
+ * Vertically align all cells to bottom.
+ *
+ * 1. Flex direction is columnar -> axis are switched.
+ * 2. Table layout fallback.
+ */
+.Arrange--bottom {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    justify-content: flex-end; /* 1 */
+
+    /* 1 */
+    .no-flexbox({
+      vertical-align: bottom;
+    });
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name equal
+ * @component Arrange
+ *
+ * @description
+ * Give the cells an equal width. This value ensures that Arrange is still 100%
+ * wide when gutters are used in conjunctions with equal-width cells.
+ *
+ * It's recommended that only 'Arrange-sizeFill' be used for equal width cells.
+ * Their inner images will automatically be responsive.
+ *
+ * 1. Table layout fallback. This layout algorithm will create equal-width table
+ *    cells, irrespective of the width of their content.
+ * 2. Table layout fallback.
+ */
+.Arrange--equal {
+  /* 1 */
+  .no-flexbox({
+    table-layout: fixed;
+  });
+
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    flex: 1 1 auto;
+
+    /* 1 */
+    .no-flexbox({
+      width: 1%;
+    });
+  }
+}
+
+/**
+ * Only horizontal gutter makes sense.
+ */
+
+/**
+ * @atdoc componentModifier
+ * @name gutter5px
+ * @component Arrange
+ *
+ * @description
+ * Sets cells' gutter to small size.
+ */
+.Arrange--gutter5px {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    padding-left: 5px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutter10px
+ * @component Arrange
+ *
+ * @description
+ * Sets cells' gutter to medium size.
+ */
+.Arrange--gutter10px {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    padding-left: 10px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutter15px
+ * @component Arrange
+ *
+ * @description
+ * Sets cells' gutter to regular size.
+ */
+
+.Arrange--gutter15px {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    padding-left: 15px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutter20px
+ * @component Arrange
+ *
+ * @description
+ * Sets cells' gutter to large size.
+ */
+
+.Arrange--gutter20px {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    padding-left: 20px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutter30px
+ * @component Arrange
+ */
+.Arrange--gutter30px {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    padding-left: 30px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+/**
+ * @atdoc componentModifier
+ * @name gutter40px
+ * @component Arrange
+ *
+ * @description
+ * Sets cells' gutter to Huge size.
+ */
+
+.Arrange--gutter40px {
+  > .Arrange-sizeFill,
+  > .Arrange-sizeFit {
+    padding-left: 40px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+/* Descendants
+   ========================================================================== */
+
+/**
+ * @atdoc descendant
+ * @name sizeFit
+ * @name sizeFill
+ * @component Arrange
+ *
+ * @description
+ * There are two possible types of descendants.
+ * `sizeFill` will expand to fill all of the remaining space not filled by
+ * `sizeFit` elements.
+ *
+ * 1. Table layout fallback.
+ * 2. Zero out any default spacing that might be on an element (e.g., `li`);
+ *    Margin has no effect when coupled with `display: table-cell`.
+ * 3. Keep its natural size, don't grow nor shrink.
+ * 4. Flow in column direction (which mimics block layout).
+ */
+.Arrange-sizeFill,
+.Arrange-sizeFit {
+  display: table-cell;  /* 1 */
+  display: flex;
+  padding: 0; /* 2 */
+  flex: 0 0 auto; /* 3 */
+  flex-direction: column; /* 4 */
+  vertical-align: top;
+}
+
+/**
+ * Make sure the main content block expands to fill the remaining space.
+ *
+ * 1. Take remaining space by factor 1.
+ * 2. Also, shrink when not enough space by factor 1.
+ * 3. Also, make the basis not-auto which is broken on IE.
+ * 4. Fixes possible text truncation inside it. Default is `auto` for flex layout.
+ * 5. Table layout fallback.
+ */
+.Arrange-sizeFill {
+  flex: 1 1 0%; /* 1 */ /* 2 */ /* 3 */
+  min-width: 0; /* 4 */
+
+  /* 5 */
+  .no-flexbox({
+    width: 100%;
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name center
+ * @component Arrange
+ *
+ * @description
+ * Centers content in `Arrange-sizeFill` and `Arrange-sizeFit` descendants.
+ *
+ * 1. Flex direction is columnar -> axis are switched.
+ */
+.Arrange-center {
+  align-items: center; /* 1 */
+
+  .no-flexbox({
+    text-align: center;
+  });
+}
+
+/**
+ * @atdoc descendant
+ * @name right
+ * @component Arrange
+ *
+ * @description
+ * Right-aligns content in `Arrange-sizeFill` and `Arrange-sizeFit` descendants.
+ *
+ * 1. Flex direction is columnar -> axis are switched.
+ */
+.Arrange-right {
+  align-items: flex-end; /* 1 */
+
+  .no-flexbox({
+    text-align: right;
+  });
+}
+
+/**
+ * Where possible, protect against large images breaking the layout. Prevent
+ * them from exceeding the width of the main content block by making them fluid.
+ *
+ * Only works for all browsers with the `Arrange--equal` variant. For Firefox
+ * and IE to constrain image dimensions for other layouts, large images will
+ * need their width set to `100%`.
+ */
+.Arrange-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Defend against a side-effect of this layout pattern: images in
+ * 'Arrange-sizeFit' cannot be fluid, otherwise they lose their ability to
+ * provide size to a cell.
+ */
+.Arrange-imgFit {
+  max-width: none !important;
+  width: auto !important;
+}

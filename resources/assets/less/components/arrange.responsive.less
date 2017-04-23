@@ -1,0 +1,58 @@
+@import "../mixins/media-queries";
+@import "../mixins/compatibility";
+
+/* Descendants
+   ========================================================================== */
+
+.arrange-fill-mixin() {
+  flex: 1 0 auto;
+
+  .no-flexbox({
+    width: 100%;
+  });
+}
+
+.arrange-fit-mixin() {
+  flex: 0 0 auto;
+
+  .no-flexbox({
+    width: 1%;
+  });
+}
+
+.at-least(32em, {
+  .Arrange-sizeFill\:32em { .arrange-fill-mixin(); }
+  .Arrange-sizeFit\:32em { .arrange-fit-mixin(); }
+});
+
+.at-least(40em, {
+  .Arrange-sizeFill\:40em { .arrange-fill-mixin(); }
+  .Arrange-sizeFit\:40em { .arrange-fit-mixin(); }
+
+  .Arrange--gutter20px\:40em {
+    > .Arrange-sizeFill,
+    > .Arrange-sizeFit {
+      padding-left: 20px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+});
+
+.at-least(60em, {
+  .Arrange-sizeFill\:60em { .arrange-fill-mixin(); }
+  .Arrange-sizeFit\:60em { .arrange-fit-mixin(); }
+
+  .Arrange--gutter20px\:60em {
+    > .Arrange-sizeFill,
+    > .Arrange-sizeFit {
+      padding-left: 20px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+});

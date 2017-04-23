@@ -1,0 +1,27 @@
+.at2x(@rules) {
+  @media (-webkit-min-device-pixel-ratio: 2),
+         (           min-resolution: 192dpi),
+         (           min-resolution: 2dppx)  {
+    @rules();
+  }
+}
+
+.at3x(@rules) {
+  @media (-webkit-min-device-pixel-ratio: 3),
+         (           min-resolution: 288dpi),
+         (           min-resolution: 3dppx) {
+    @rules();
+  }
+}
+
+.at-least(@value, @rules) {
+  @media (min-width: @value) { @rules(); }
+}
+
+.at-most(@value, @rules) {
+  @media (max-width: @value) { @rules(); }
+}
+
+.between(@min, @max, @rules) {
+  @media (min-width: @min) and (max-width: @max) { @rules(); }
+}

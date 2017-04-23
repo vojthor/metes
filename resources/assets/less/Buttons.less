@@ -1,0 +1,296 @@
+@import "./mixins/media-queries";
+@import "./variables";
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  left: 20px;
+  top: 1.4rem;
+}
+//
+//.at-least(80em, {
+//  html {
+//    .bm-burger-button {
+//      top: 18px;
+//    }
+//  }
+//});
+//
+//.at-least(110em, {
+//  html {
+//    .bm-burger-button {
+//      top: 18px;
+//    }
+//  }
+//});
+
+.bm-burger-buttonx::after {
+  content: "<MENU";
+  font-family: 'Dosis-Light', sans-serif !important;
+  font-size: 1.9rem;
+  color: white;
+  position: absolute;
+  left: 50px;
+  top: 1.4rem;
+}
+
+
+
+.at-most(44.99em, {
+  .bm-burger-button {
+  position: fixed;
+  top: 2.2rem;
+  left: 20px;
+  z-index: 6 !important;
+  }
+
+  .bm-burger-button::after {
+    content: "";
+  }
+
+  .bm-cross-button {
+    right: 10px !important;
+    top: 10px !important;
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+  }
+
+  .bm-cross-button .bm-cross {
+    height: 0.3rem !important;
+    width: 2.5rem !important;
+    right: -14px !important;
+    top: 8px !important;
+  }
+
+  .bm-menu {
+    padding-top: 80px;
+  }
+
+ #PageHeader {
+   position: fixed;
+   width: 100%;
+   z-index: 5;
+ }
+
+  #app {
+    height: 100%;
+  }
+});
+
+.at-most(50em, {
+  .bm-burger-button::after {
+    content: "";
+  }
+});
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: @color-metes-blue;
+}
+
+.bm-burger-bars:hover {
+  background: @color-white !important;
+}
+
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  right: 10px !important;
+  top: 10px !important;
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+}
+
+.bm-cross-button .bm-cross {
+  height: 0.3rem !important;
+  width: 2.5rem !important;
+  right: -14px !important;
+  top: 8px !important;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: @color-white;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: @color-metes-blue;
+  //padding: 2.5em 1.5em 0;
+  padding-right: 70px;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  padding: 0.8em;
+  position: relative;
+}
+.bm-item-list a{
+  color: @color-white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 2.0rem;
+  font-family: 'Dosis-Light', sans-serif !important;
+}
+
+.at-most(45em, {
+  .bm-item-list a {
+    font-size: 2.1rem;
+  }
+})
+
+.bm-item-list a:hover{
+  color: @color-cod-gray;
+
+
+}
+
+.bm-item-list a::before,
+.bm-item-list a::after {
+  display: inline-block;
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.bm-item-list a::before {
+  margin-right: 10px;
+  content: '[';
+  transform: translateX(20px);
+}
+
+.bm-item-list a::after {
+  margin-left: 10px;
+  content: ']';
+  transform: translateX(-20px);
+}
+
+.bm-item-list a:hover::before,
+.bm-item-list a:hover::after,
+.bm-item-list a:focus::before,
+.bm-item-list a:focus::after {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+
+main {
+  height: 100%;
+  overflow: scroll;
+}
+
+.mobileMenuSection {
+  color: lightsalmon;
+}
+
+.mobileMenuSection::after {
+  display: block;
+  width: 80%;
+  background-color: white;
+  height: 2px;
+  content: "";
+}
+
+.button {
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 3;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.lightboxHeadline {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 60%;
+  position: relative;
+  transition: all 1s ease-in-out;
+  white-space: normal;
+  //word-break:break-all;
+  word-wrap: break-word;
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup .close {
+  position: absolute;
+  top: -5px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: @color-metes-blue;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 60em){
+  .box{
+    width: 100%;
+  }
+  .popup{
+    width: 90vw;
+    //margin-left: 15px !important;
+    //margin-right: 15px !important;
+  }
+
+  .close {
+    padding-bottom: 30px;
+  }
+}

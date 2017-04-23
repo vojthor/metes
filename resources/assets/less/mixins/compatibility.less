@@ -1,0 +1,11 @@
+.inline-block() {
+  display: inline-block;
+}
+
+.opacity(@value) {
+  opacity: @value;
+}
+
+.no-flexbox(@rules) {
+  .no-flexbox.no-flexboxlegacy & { @rules(); }
+}

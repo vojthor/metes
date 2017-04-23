@@ -1,0 +1,267 @@
+@import "../mixins/media-queries";
+@import (reference) "./state";
+
+/**
+ * @atdoc utility
+ * @name isShown
+ *
+ * @description
+ * Show previously hidden element. All selectors are based on the original type
+ * of shown element.
+ */
+.u-isShown {
+  visibility: visible !important;
+
+  &,
+  .u-block& {
+    display: block !important;
+  }
+
+  .u-inlineBlock&,
+  .Icon& {
+    display: inline-block !important;
+  }
+
+  .Grid& {
+    display: block !important;
+    display: flex !important;
+
+    .no-flexbox.flexboxlegacy &.Grid--wrap {
+      display: block !important;
+    }
+  }
+
+  .Grid--inline&,
+  .Grid-cell& {
+    display: inline-block !important;
+    display: flex !important;
+  }
+
+  .no-flexbox.flexboxlegacy .Grid--wrap > .Grid-cell {
+    display: inline-block !important;
+  }
+
+  span&,
+  .u-inline& {
+    display: inline !important;
+  }
+
+  table&,
+  .u-table&  {
+    display: table !important;
+  }
+
+  .Arrange&  {
+    display: table !important;
+    display: flex !important;
+  }
+
+  td&,
+  .u-tableCell&  {
+    display: table-cell !important;
+  }
+
+  .Arrange-sizeFit&,
+  .Arrange-sizeFill&  {
+    display: table-cell !important;
+    display: flex !important;
+  }
+
+  .u-flex& {
+    display: flex !important;
+  }
+}
+
+.at-least(25em, {
+  .u-isShown\:25em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:25em {
+    .u-isHidden();
+  }
+});
+
+.at-least(30em, {
+  .u-isShown\:30em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:30em {
+    .u-isHidden();
+  }
+});
+
+.at-least(30em, {
+  .u-isShown\:30em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:30em {
+    .u-isHidden();
+  }
+});
+
+.at-least(35em, {
+  .u-isShown\:35em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:35em {
+    .u-isHidden();
+  }
+});
+
+.at-least(40em, {
+  .u-isShown\:40em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:40em {
+    .u-isHidden();
+  }
+});
+
+.at-least(44.99em, {
+  .u-isShown\:45em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:45em {
+    .u-isHidden();
+  }
+});
+
+.at-least(50em, {
+.u-isShown\:50em {
+  .u-isShown();
+}
+
+.u-isHidden\:50em {
+  .u-isHidden();
+}
+});
+
+.at-least(60em, {
+  .u-isShown\:60em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:60em {
+    .u-isHidden();
+  }
+});
+
+.at-least(70em, {
+  .u-isShown\:70em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:70em {
+    .u-isHidden();
+    .u-block& {
+      .u-isHidden();
+    }
+  }
+});
+
+.at-least(75em, {
+  .u-isShown\:75em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:75em {
+    .u-isHidden();
+    .u-block& {
+      .u-isHidden();
+    }
+  }
+});
+
+.at-least(80em, {
+  .u-isShown\:80em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:80em {
+    .u-isHidden();
+    .u-block& {
+      .u-isHidden();
+    }
+  }
+});
+
+.at-least(85em, {
+  .u-isShown\:85em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:85em {
+    .u-isHidden();
+    .u-block& {
+      .u-isHidden();
+    }
+  }
+});
+
+.at-least(90em, {
+  .u-isShown\:90em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:90em {
+    .u-isHidden();
+  }
+});
+
+/* 100em ~= 1600px, targetting 1920 width */
+.at-least(100em, {
+  .u-isShown\:100em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:100em {
+    .u-isHidden();
+  }
+});
+
+/* 150em ~= 2400px, targetting 2560 width */
+.at-least(150em, {
+  .u-isShown\:150em {
+    .u-isShown();
+  }
+
+  .u-isHidden\:150em {
+    .u-isHidden();
+  }
+});
+
+.at-most(35em, {
+  .u-isHidden\:0-35em {
+    .u-isHidden();
+  }
+});
+
+.at-most(60em, {
+  .u-isHidden\:0-60em {
+    .u-isHidden();
+  }
+});
+.at-most(60em, {
+  .u-isShown\:0-60em {
+    .u-isShown();
+  }
+});
+
+.at-most(40em, {
+  .u-isHidden\:0-40em {
+    .u-isHidden();
+  }
+});
+
+
+.at-most(44.99em, {
+  .u-isHidden\:0-45em {
+    .u-isHidden();
+  }
+});

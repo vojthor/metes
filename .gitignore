@@ -1,0 +1,15 @@
+/vendor
+/node_modules
+/resources/assets/sass/components/_icon*
+/resources/assets/js/consts
+/public/build
+/public/css
+/public/js
+/public/img
+/public/fonts
+/design
+Homestead.yaml
+.env
+.idea
+.phpstorm.meta.php
+_ide_helper.php
